@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Movie, Trailer
 from boomrok_app import models
 
@@ -65,3 +65,13 @@ class UpdateMovie(UpdateView):
 
     def get_success_url(self):
         return reverse('movie_details', kwargs={'pk':self.object.pk})
+
+class DeleteMovie(DeleteView):
+    '''
+    Deletes a selected movie item
+    '''
+    model = Movie
+    template_name = 'admin/delete_item.html'
+
+    def get_success_url(self):
+        return reverse('index')

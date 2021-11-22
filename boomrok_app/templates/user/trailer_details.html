@@ -8,16 +8,16 @@
                 height="405" 
                 controls
                 data-setup='{"playbackRates": [0.5, 1, 1.5, 2], "fluid": true}'>
-                    <source src="/media/{{ object.videoFile }}" type="video/mp4">
+                    <source src="/media/Files/Trailers/{{object.trailer_item}}" type="video/mp4">
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                         </p>
             </video-js>
-            <h5 class="mt-4">{{ object.title }}</h5>
+            <h5 class="mt-4">{{ object.trailer_title }}</h5>
             <div class="row">
                 <div class="col-md-6 text-muted">
-                    <p>{{ object.date_posted | date:"M d, Y" }}</p>
+                    <p>Posted: {{ object.date_posted | date:"M d, Y" }}</p>
                 </div>
                 <div class="col-md-6 text-muted text-right">
                     <!-- Button trigger modal -->
@@ -39,7 +39,7 @@
                                 <ion-icon class="social-share-icons twitter-social-color" name="logo-twitter" data-sharer="twitter" data-title="Checkout {{ object.title }} by {{ object.uploader }}!" data-hashtags="" data-url="http://localhost:8000/videos/{{ object.pk }}">Share on Twitter</ion-icon>                                
                                 <ion-icon class="social-share-icons facebook-social-color" name="logo-facebook" data-sharer="facebook" data-title="Checkout {{ object.title }} by {{ object.uploader }}!" data-hashtags="" data-url="http://localhost:8000/videos/{{ object.pk }}">Share on Facebook</ion-icon>
                                 <ion-icon class="social-share-icons reddit-social-color" name="logo-reddit" data-sharer="reddit" data-title="Checkout {{ object.title }} by {{ object.uploader }}!" data-hashtags="" data-url="http://localhost:8000/videos/{{ object.pk }}">Share on Reddit</ion-icon>
-                                <p class="mt-3">Link: http://localhost:8000/videos/{{ object.pk }}</p>
+                                <p class="mt-3">Link: http://localhost:8000/{{ object.pk }}/trailer</p>
                             </div>
                         </div>
                         </div>
@@ -53,11 +53,11 @@
             <hr>
             <div class="row">
                 <div class="col-md-6 d-flex flex-row align-items-center">
-                    <a href="{% url 'profile' object.uploader.pk %}"><img src="{{ object.uploader.profile.image.url }}" class="rounded-circle mr-4" height="65" width="65"></a>
-                    <a class="video-uploader" href="{% url 'profile' object.uploader.pk %}"><h5>{{ object.uploader }}</h5></a>
+                    <a href=""><img src="" class="rounded-circle mr-4" height="65" width="65"></a>
+                    <a class="video-uploader" href=""><h5>{{ object.uploader }}</h5></a>
                 </div>
             </div>
-            <p class="ml-5 mt-3"> {{ object.description }}</p>
+            <p class="ml-5 mt-3"> {{ object.trailer_description }}</p>
         </div>
     </div>
 </div>
