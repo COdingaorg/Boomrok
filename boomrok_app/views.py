@@ -1,8 +1,9 @@
 from django.urls import reverse
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Movie, Trailer
+from boomrok_app import models
 
 # Create your views here.
 site_name = 'Boomrok'
@@ -27,6 +28,16 @@ class TrailerDetails(DetailView):
     model = Trailer
     template_name = 'user/trailer_details.html'
 
+class UpdateTrailer(UpdateView):
+    model = Trailer
+    fields = ['trailer_title', 'trailer_description', 'movie', 'active_on_display']
+    template_name = 'admin/trailer_upload.html'
+
+    def get_success_url(self):
+        return reverse('trailer_details', kwargs={'pk':self.object.pk})
+
+
+
 class UploadMovie(CreateView):
     '''
     create view for uploading movies
@@ -37,3 +48,20 @@ class UploadMovie(CreateView):
 
     def get_success_url(self):
         return reverse('trailer_upload')
+
+class MovieDetails(DetailView):
+    '''
+    view Moview details, watch movie
+    '''
+    model = Movie
+    template_name = 'user/movie_details.html'
+class UpdateMovie(UpdateView):
+    '''
+    updates movie details
+    '''
+    model = Movie
+    fields = ['title', 'sub_title', 'poster', 'movie_info','release_date']
+    template_name = 'admin/movie_upload.html'
+
+    def get_success_url(self):
+        return reverse('movie_details', kwargs={'pk':self.object.pk})
