@@ -26,3 +26,14 @@ class CreateTrailer(CreateView):
 class TrailerDetails(DetailView):
     model = Trailer
     template_name = 'user/trailer_details.html'
+
+class UploadMovie(CreateView):
+    '''
+    create view for uploading movies
+    '''
+    model = Movie
+    fields = ['movie_number','title', 'sub_title', 'poster', 'movie_info', 'release_date', 'movie_item']
+    template_name = 'admin/movie_upload.html'
+
+    def get_success_url(self):
+        return reverse('trailer_upload')
