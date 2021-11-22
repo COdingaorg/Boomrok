@@ -8,6 +8,7 @@
     --lighter_blue : #A2A0AE;
     --blue :#5D6390;
 }
+
 .navbar-brand{
     font-weight: bold;
 }
@@ -15,6 +16,7 @@
     background-color: #060612;
     color: var(--white);
     padding: 0px 4px;
+    font-family: pier_sans;
 }
 nav.navbar>a,.nav-link{
     color: var(--white);
@@ -24,4 +26,9 @@ nav.navbar>a,.nav-link{
     padding: 0px, -12px;
     font-weight: bold;
     border-top: 2px solid var(--Red);
+}
+#movie_side{
+    height: 100%;
+    color: green;
+    border: 5px solid rgb(202, 202, 148);
 }

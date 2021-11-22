@@ -1,9 +1,53 @@
 {% extends 'user/base.html' %}
 {% block content %}
 
-<h1>Your movie title</h1>
-<br>
-<h4>Now movie subtitle</h4>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus nihil ex harum distinctio? Laborum repellat pariatur voluptatibus, facilis a adipisci, vel molestias quae consequuntur tenetur sunt corrupti tempore inventore. Ab!</p>
+<div id="movie_side row">
+    <div class="movie_details col-md-8">
+        <h1>Your movie title{{movie.title}}:</h1>
+        <h4>Now movie subtitle{{movie.sub_title}}</h4>
+        <span>
+            Coming Soon : {{movie.release_date}}
+        </span>
+        <!--pagination buttons-->
+        <button class="watch_trailer">Watch Trailer</button>
+        <button class="buy_link"> Buy Link</button>
+
+        <!--watch trailer button page -->
+
+        <div class="movie_info">
+            <span>
+                <h3>Category</h3>
+                <p>Drama Series</p>
+
+                <h3>Director(s)</h3>
+                <p>Sam Mwangi, Antony and TOm {{movie.directors}}</p>
+
+                <h3>Writer(s)</h3>
+                <p>Odogo, Sam Mwangi {{movie.writers}}</p>
+            </span>
+            <span>
+                <h3>Story Line</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At amet quibusdam dignissimos eligendi, distinctio sint natus perferendis harum culpa. Dicta ducimus quia possimus odio exercitationem perferendis facere eligendi voluptatibus quis?</p>
+            </span>
+            <div class="cast">
+                <h3>Cast Members</h3>
+                <p>Cast members here</p>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar col-md-4">
+        <div class="related_movies">
+            <h3>Related movie title {{related_movie.title}}</h3>
+            <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt dicta tempore numquam. Quis, amet!</p>
+
+            <h3>Related movie title{{related_movie.title}}</h3>
+            <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt dicta tempore numquam. Quis, amet!</p>
+        
+        </div>
+        <div class="top_trailers">
+            <img src="" alt="">
+        </div>
+    </div>
+</div>
 
 {% endblock %}

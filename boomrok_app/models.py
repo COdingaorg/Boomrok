@@ -24,6 +24,8 @@ class Movie(models.Model):
     sub_title = models.TextField()
     poster = models.ImageField(upload_to = 'Files/Posters/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
     movie_info = models.TextField()
+    writers = models.TextField(default = 'Writers Go hera, separate with commas')
+    directors = models.TextField(default = 'Directors go Here, separate with commas')
     subscribers = models.ManyToManyField(to=User_Subscribers)
     release_date = models.DateTimeField(default=dt_now)
     date_posted = models.DateTimeField(default=dt_now, blank=False)
