@@ -1,8 +1,7 @@
 ## Author
 Caleb Ouma Odinga 
 
-## Caleb-Odinga-My-Portfolio
-This Website shows my portfolio. Professional skills, The projects i have done and the projects i am currently working on. It also goes to the fun part, hobbies, talents and the things i like to do in my spare time. It has a contact page through which we can talk and the proposed features the website should have in future.
+## Boomrok
 
 ## Installation
 
@@ -19,7 +18,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Website's link
-to view Live click Here--https://calebodinga.github.io/Caleb-Odinga-My-Portfolio/index.html
+to view Live click Here--
 
 ## License
 This Website uses MIT LICENSE. For more Read License.
