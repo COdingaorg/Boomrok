@@ -1,3 +1,4 @@
+from django.contrib.admin.sites import site
 from django.shortcuts import render
 
 # Create your views here.
@@ -6,7 +7,7 @@ def index(request):
     '''
     view function rendering index page
     '''
-    context={
-        site_name : 'title',
+    context = {
+        'title':f"{site_name}-Home"
     }
-    return(request, context, 'user/home.html')
+    return render(request,'user/home.html', context)

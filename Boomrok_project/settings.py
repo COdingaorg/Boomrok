@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'boomrok_app.apps.BoomrokAppConfig',
+    'boomrok_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
