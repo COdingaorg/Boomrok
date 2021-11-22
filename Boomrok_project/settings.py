@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'tinymce',
     'mathfilters',
     'rest_framework',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -160,3 +161,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
+
+#Crispy Forms Template Pack
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
