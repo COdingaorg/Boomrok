@@ -1,0 +1,27 @@
+:root{
+    --darker_blue : #060612;
+    --dark_blue : #282B4C;
+    --dark_Grey :#463427;
+    --white : #F3F3F4;
+    --light_grey : #505167;
+    --Red : #F80318;
+    --lighter_blue : #A2A0AE;
+    --blue :#5D6390;
+}
+.navbar-brand{
+    font-weight: bold;
+}
+#MainPage{
+    background-color: #060612;
+    color: var(--white);
+    padding: 0px 4px;
+}
+nav.navbar>a,.nav-link{
+    color: var(--white);
+}
+.nav-link:hover{
+    color: var(--white);
+    padding: 0px, -12px;
+    font-weight: bold;
+    border-top: 2px solid var(--Red);
+}
