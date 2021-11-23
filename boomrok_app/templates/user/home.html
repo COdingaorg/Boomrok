@@ -42,10 +42,20 @@
                 </div><br>
                 <div class="cast">
                     <h6>Cast Members</h6>
-                    {% for cast in cast_members %}
+                    {% if cast_members%}
+                    <div id="cast_members">
+                        <!-- {% for cast in cast_members %}
+                        <div id="cast_member">
+                            <img src="{{cast.image.url}}" alt="{{cast.screen_name}}'s picture" class="m-2">
+                            <p class="texter bold text-align-center">{{cast.first_name}} {{cast.last_name}} as <br>
+                                <i>{{cast.screen_name}} "{{cast.role}}"</i></p>
+                        </div>
 
-
-                    {% endfor %}
+                        {% endfor %} -->
+                    </div>
+                    {% else %}
+                    <h5 class="warning"> No Cast Members Added! </h5>
+                    {% endif%}
                 </div>
             </div>
         </div>

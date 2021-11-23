@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 urlpatterns = [
   url(r'^$', views.index, name = 'index'),
   url(r'^trailer_upload/$', views.CreateTrailer.as_view(), name = 'trailer_upload'),
+  url(r'^create_cast/$', views.CreateCast.as_view(), name = 'create_cast'),
   url(r'^movie_upload/$', views.UploadMovie.as_view(), name = 'movie_upload'),
   path('<int:pk>/edit_movie/', views.UpdateMovie.as_view(), name = 'edit_movie'),
   path('<int:pk>/trailer/', views.TrailerDetails.as_view(), name = 'trailer_details'),

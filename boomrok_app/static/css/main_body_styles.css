@@ -43,7 +43,7 @@
 nav.navbar>a,.nav-link{
     color: var(--white);
 }
-.nav-link:hover{
+.nav-link:hover,h6:hover{
     color: var(--white);
     padding: 0px, -12px;
     font-weight: bold;
@@ -55,6 +55,7 @@ nav{
 #movie_side{
     padding: 0;
     background-image: url(../../../media/Files/Posters/spiderman-no-way-home-leak-mcu-marvel-studios-sony-tom-holland-andrew-garf_7vSsleA.jpg);
+    background-repeat: no-repeat;
 }
 .poster>img{
     width: 100%;
@@ -128,4 +129,31 @@ h6{
 }
 .texter{
     font-size: 14px;
+}
+.warning{
+    color: var(--Red);
+    background-color: var(--white);
+    padding: 4%;
+    border-radius: 8px;
+}
+#cast_member{
+    display: flex;
+    flex-direction: column;
+    margin: 2px;
+}
+#cast_members{
+    display: flex;
+    flex-direction: row;
+}
+#cast_member>img{
+    border-radius: 6px;
+    width: 260px;
+    height: auto;
+    border: 2px solid var(--dark_blue);
+    box-shadow: 4px 4px 8px var(--dark_blue);
+}
+#cast_member>img:hover{
+    rotate: 2deg;
+    width: 264px;
+    z-index: 2;
 }

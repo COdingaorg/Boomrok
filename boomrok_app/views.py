@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from .models import Movie, Trailer
+from .models import Cast_Members, Movie, Trailer
 from boomrok_app import models
 
 # Create your views here.
@@ -13,8 +13,10 @@ def index(request):
     '''
 
     home_display = Trailer.objects.filter(active_on_display = True).last()
+    cast_members = Cast_Members.objects.filter(movie = home_display.movie.pk).all()
     
     context = {
+        'cast_members':cast_members,
         'now_trailer': home_display,
         'title':f"{site_name}-Home"
     }
@@ -79,3 +81,14 @@ class DeleteMovie(DeleteView):
 
     def get_success_url(self):
         return reverse('index')
+
+class CreateCast(CreateView):
+    '''
+    Creates cast members
+    '''
+    model = Cast_Members
+    fields = ['first_name', 'last_name', 'screen_name', 'role','image', 'movie']
+    template_name = 'admin/create_cast.html'
+
+    def get_success_url(self):
+        return reverse('create_cast') 
