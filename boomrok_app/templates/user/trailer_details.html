@@ -1,10 +1,11 @@
 {% extends 'user/base.html' %}
+{% load static %}
 {% block content %}
 <div class="container">
     <div class="row mt-5">
-        <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-12 col-xs-12 align-items-center justify-content-bottom">
 
-            <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+            <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" style="min-width:640px; width: 100%; min-height:264px"
                 poster="{{object.movie.poster.url}}" data-setup="{}">
                 <source src="{{object.trailer_item.url}}" type="video/mp4" />
                 <p class="vjs-no-js">

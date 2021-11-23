@@ -27,8 +27,3 @@ nav.navbar>a,.nav-link{
     font-weight: bold;
     border-top: 2px solid var(--Red);
 }
-#movie_side{
-    height: 100%;
-    color: green;
-    border: 5px solid rgb(202, 202, 148);
-}
