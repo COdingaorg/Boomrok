@@ -7,6 +7,7 @@
     --Red : #F80318;
     --lighter_blue : #A2A0AE;
     --blue :#5D6390;
+    --blue_light :rgba(93, 99, 144,.8);
 }
 @font-face {
     font-family: pier_sans;
@@ -21,6 +22,11 @@
     font-family: Nexa;
     src: url(../web-fonts/Nexa/Nexa-Light.otf)
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .navbar-brand{
     font-weight: bold;
 }
@@ -32,7 +38,6 @@
     color: var(--white);
     padding: 0px 4px;
     font-family: pier_sans;
-    padding: 0;
     margin: 0;
 }
 nav.navbar>a,.nav-link{
@@ -66,10 +71,8 @@ nav{
     border: 1px solid var(--darker_blue);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: rgba(40, 43, 76, .4);
-    margin: 2% 0;
+    margin: 4% 0;
     padding: 0;
 }
 hr{
@@ -82,4 +85,47 @@ hr{
     align-items: center;
     justify-content: center;
     padding: 2%;
+}
+.movie_details{
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    align-items: center;
+    justify-content: center;
+}
+.coming_soon{
+    font-weight: bold;
+    font-family: Nexa;
+    border-radius: 8px;
+    background-color: var(--light_grey);
+    padding: 4px;
+}
+.movie_info{
+    background-color: var(--blue_light);
+    margin: 2% 0px 2% -4%;
+    padding: 2% 20%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 30px 4px 0px;
+}
+.selections{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.selections>div{
+    padding: 1%;
+}
+.movie_info>span{
+    margin: 2%;
+}
+h6{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: pier_sans_medium;
+    font-size: 14px;
+}
+.texter{
+    font-size: 14px;
 }

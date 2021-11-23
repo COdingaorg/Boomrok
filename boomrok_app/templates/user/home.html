@@ -5,34 +5,43 @@
 <div id="movie_side">
     <div id="page_overlay" class="row d-flex m-0 p-0">
         <div class="movie_details col-md-8">
-            <h1>{{now_trailer.movie.title}}:</h1>
-            <h4>{{now_trailer.movie.sub_title}}</h4>
-            <span>
-                Coming Soon : {{now_trailer.movie.release_date}}
-            </span>
-            <!--pagination buttons-->
-            <button class="watch_trailer btn btn-light">Watch Trailer</button>
-            <button class="buy_link btn btn-danger"> Buy Link</button>
+            <div class="movie_title">
+                <h1>{{now_trailer.movie.title}}:</h1>
+                <h4>{{now_trailer.movie.sub_title}}</h4>
 
+                <span class="coming_soon">
+                    Coming Soon : {{now_trailer.movie.release_date}}
+                </span>
+            </div>
+
+            <!--pagination buttons-->
+            <div class="m-4 d-flex alaign-itemd-center justify-content-center">
+                <button class="watch_trailer btn btn-light m-2">Watch Trailer</button>
+                <button class="buy_link btn btn-danger m-2"> Buy Movie Link</button>
+            </div>
             <!--watch trailer button page -->
 
             <div class="movie_info">
-                <span>
-                    <h3>Category</h3>
-                    <p>{{now_trailer.movie.category}}</p>
-
-                    <h3>Director(s)</h3>
-                    <p>{{now_trailer.movie.directors}}</p>
-
-                    <h3>Writer(s)</h3>
-                    <p>{{now_trailer.movie.writers}}</p>
-                </span>
-                <span>
-                    <h3>Story Line</h3>
-                    <p>{{now_trailer.movie.movie_info}}</p>
-                </span>
+                <div class="selections">
+                    <div>
+                        <h6>Category</h6>
+                        <p class="texter">{{now_trailer.movie.category}}</p>
+                    </div>
+                    <div>
+                        <h6>Director(s)</h6>
+                        <p class="texter">{{now_trailer.movie.directors}}</p>
+                    </div>
+                    <div>
+                        <h6>Writer(s)</h6>
+                        <p class="texter">{{now_trailer.movie.writers}}</p>
+                    </div>
+                </div>
+                <div>
+                    <h6>Story Line</h6>
+                    <p class="texter">{{now_trailer.movie.movie_info}}</p>
+                </div><br>
                 <div class="cast">
-                    <h3>Cast Members</h3>
+                    <h6>Cast Members</h6>
                     {% for cast in cast_members %}
 
 
@@ -45,13 +54,15 @@
                 <img src="{{now_trailer.movie.poster.url}}" alt="{{now_trailer.trailer_title}} poster">
             </div>
             <div class="related_movies">
-                <h3>Related movie title {{related_movie.title}}</h3>
-                <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum
+                <h6>Related movie title {{related_movie.title}}</h6>
+                <p class="texter">{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quae cum earum
                     hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt
                     dicta tempore numquam. Quis, amet!</p>
 
-                <h3>Related movie title{{related_movie.title}}</h3>
-                <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum
+                <h6>Related movie title{{related_movie.title}}</h6>
+                <p class="texter">{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quae cum earum
                     hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt
                     dicta tempore numquam. Quis, amet!</p>
 
