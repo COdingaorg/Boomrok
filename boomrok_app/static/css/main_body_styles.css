@@ -8,15 +8,32 @@
     --lighter_blue : #A2A0AE;
     --blue :#5D6390;
 }
-
+@font-face {
+    font-family: pier_sans;
+    src: url(../web-fonts/PierSans/PierSans-Light.otf);
+   
+}
+@font-face {
+    font-family: pier_sans_medium;
+    src: url(../web-fonts/PierSans/PierSans-Medium.otf)
+}
+@font-face {
+    font-family: Nexa;
+    src: url(../web-fonts/Nexa/Nexa-Light.otf)
+}
 .navbar-brand{
     font-weight: bold;
 }
+#page_overlay{
+    background-image: radial-gradient(circle at 70% 18%, rgba(93, 99, 144,.6) 5%, rgba(6, 6, 18,.8) 70%) ;
+}
 #MainPage{
-    background-color: #060612;
+    background-image: radial-gradient(circle at 70% 18%, var(--blue) 5%, var(--darker_blue) 70%) ;
     color: var(--white);
     padding: 0px 4px;
     font-family: pier_sans;
+    padding: 0;
+    margin: 0;
 }
 nav.navbar>a,.nav-link{
     color: var(--white);
@@ -26,4 +43,43 @@ nav.navbar>a,.nav-link{
     padding: 0px, -12px;
     font-weight: bold;
     border-top: 2px solid var(--Red);
+}
+nav{
+    border-bottom: 2px solid var(--darker_blue);
+}
+#movie_side{
+    padding: 0;
+    background-image: url(../../../media/Files/Posters/spiderman-no-way-home-leak-mcu-marvel-studios-sony-tom-holland-andrew-garf_7vSsleA.jpg);
+}
+.poster>img{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 4px solid var(--white);
+    box-shadow: 2px 2px 4px grey;
+}
+.poster>img, .poster, .sidebar{
+    border-radius: 16px 0px 16px 0px;
+}
+.sidebar{
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--darker_blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(40, 43, 76, .4);
+    margin: 2% 0;
+    padding: 0;
+}
+hr{
+    border-bottom: 1px solid white;
+    width: 80%;
+}
+.related_movies{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
 }

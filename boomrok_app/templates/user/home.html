@@ -1,52 +1,64 @@
 {% extends 'user/base.html' %}
+{% load bootstrap4 %}
 {% load static %}
 {% block content %}
-
-<div id="movie_side row">
-    <div class="movie_details col-md-8">
-        <h1>Your movie title{{movie.title}}:</h1>
-        <h4>Now movie subtitle{{movie.sub_title}}</h4>
-        <span>
-            Coming Soon : {{movie.release_date}}
-        </span>
-        <!--pagination buttons-->
-        <button class="watch_trailer">Watch Trailer</button>
-        <button class="buy_link"> Buy Link</button>
-
-        <!--watch trailer button page -->
-
-        <div class="movie_info">
+<div id="movie_side">
+    <div id="page_overlay" class="row d-flex m-0 p-0">
+        <div class="movie_details col-md-8">
+            <h1>{{now_trailer.movie.title}}:</h1>
+            <h4>{{now_trailer.movie.sub_title}}</h4>
             <span>
-                <h3>Category</h3>
-                <p>Drama Series</p>
-
-                <h3>Director(s)</h3>
-                <p>Sam Mwangi, Antony and TOm {{movie.directors}}</p>
-
-                <h3>Writer(s)</h3>
-                <p>Odogo, Sam Mwangi {{movie.writers}}</p>
+                Coming Soon : {{now_trailer.movie.release_date}}
             </span>
-            <span>
-                <h3>Story Line</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At amet quibusdam dignissimos eligendi, distinctio sint natus perferendis harum culpa. Dicta ducimus quia possimus odio exercitationem perferendis facere eligendi voluptatibus quis?</p>
-            </span>
-            <div class="cast">
-                <h3>Cast Members</h3>
-                <p>Cast members here</p>
+            <!--pagination buttons-->
+            <button class="watch_trailer btn btn-light">Watch Trailer</button>
+            <button class="buy_link btn btn-danger"> Buy Link</button>
+
+            <!--watch trailer button page -->
+
+            <div class="movie_info">
+                <span>
+                    <h3>Category</h3>
+                    <p>{{now_trailer.movie.category}}</p>
+
+                    <h3>Director(s)</h3>
+                    <p>{{now_trailer.movie.directors}}</p>
+
+                    <h3>Writer(s)</h3>
+                    <p>{{now_trailer.movie.writers}}</p>
+                </span>
+                <span>
+                    <h3>Story Line</h3>
+                    <p>{{now_trailer.movie.movie_info}}</p>
+                </span>
+                <div class="cast">
+                    <h3>Cast Members</h3>
+                    {% for cast in cast_members %}
+
+
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-    <div class="sidebar col-md-4">
-        <div class="related_movies">
-            <h3>Related movie title {{related_movie.title}}</h3>
-            <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt dicta tempore numquam. Quis, amet!</p>
+        <div class="sidebar col-md-4">
+            <div class="poster">
+                <img src="{{now_trailer.movie.poster.url}}" alt="{{now_trailer.trailer_title}} poster">
+            </div>
+            <div class="related_movies">
+                <h3>Related movie title {{related_movie.title}}</h3>
+                <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum
+                    hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt
+                    dicta tempore numquam. Quis, amet!</p>
 
-            <h3>Related movie title{{related_movie.title}}</h3>
-            <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt dicta tempore numquam. Quis, amet!</p>
-        
-        </div>
-        <div class="top_trailers">
-            <img src="" alt="">
+                <h3>Related movie title{{related_movie.title}}</h3>
+                <p>{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cum earum
+                    hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt
+                    dicta tempore numquam. Quis, amet!</p>
+
+            </div>
+            <div class="top_trailers">
+                <img src="" alt="">
+            </div>
         </div>
     </div>
 </div>

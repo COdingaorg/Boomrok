@@ -11,7 +11,11 @@ def index(request):
     '''
     view function rendering index page
     '''
+
+    home_display = Trailer.objects.filter(active_on_display = True).last()
+    
     context = {
+        'now_trailer': home_display,
         'title':f"{site_name}-Home"
     }
     return render(request,'user/home.html', context)

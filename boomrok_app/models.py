@@ -26,6 +26,7 @@ class Movie(models.Model):
     movie_info = models.TextField()
     writers = models.TextField(default = 'Writers Go hera, separate with commas')
     directors = models.TextField(default = 'Directors go Here, separate with commas')
+    category = models.CharField(max_length=100, default="Category Goes here")
     subscribers = models.ManyToManyField(to=User_Subscribers)
     release_date = models.DateTimeField(default=dt_now)
     date_posted = models.DateTimeField(default=dt_now, blank=False)
