@@ -2,9 +2,9 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
-<div id="movie_side">
+<div id="movie_side" style="background-image: url({{now_trailer.movie.poster.url}});">
     <div id="page_overlay" class="row d-flex m-0 p-0">
-        <div class="movie_details col-md-8">
+        <div class="movie_details col-md-7">
             <div class="movie_title">
                 <h1>{{now_trailer.movie.title}}:</h1>
                 <h4>{{now_trailer.movie.sub_title}}</h4>
@@ -16,9 +16,36 @@
 
             <!--pagination buttons-->
             <div class="m-4 d-flex alaign-itemd-center justify-content-center">
-                <button class="watch_trailer btn btn-light m-2">Watch Trailer</button>
-                <button class="buy_link btn btn-danger m-2"> Buy Movie Link</button>
+                <a href="{% url 'trailer_details' now_trailer.pk %}" target="_blank" rel="noopener noreferrer"><button
+                        class="watch_trailer btn btn-light m-2">Watch Trailer</button></a>
+
+                <button type="button" class="buy_link btn btn-danger m-2" data-toggle="modal"
+                    data-target="#exampleModalCenter">
+                    Buy Movie Link
+                </button>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--watch trailer button page -->
 
             <div class="movie_info">
@@ -44,14 +71,15 @@
                     <h6>Cast Members</h6>
                     {% if cast_members%}
                     <div id="cast_members">
-                        <!-- {% for cast in cast_members %}
+                        {% for cast in cast_members %}
                         <div id="cast_member">
                             <img src="{{cast.image.url}}" alt="{{cast.screen_name}}'s picture" class="m-2">
                             <p class="texter bold text-align-center">{{cast.first_name}} {{cast.last_name}} as <br>
-                                <i>{{cast.screen_name}} "{{cast.role}}"</i></p>
+                                <i>{{cast.screen_name}} <br> "{{cast.role}}"</i>
+                            </p>
                         </div>
 
-                        {% endfor %} -->
+                        {% endfor %}
                     </div>
                     {% else %}
                     <h5 class="warning"> No Cast Members Added! </h5>
