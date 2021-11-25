@@ -19,6 +19,10 @@
     src: url(../web-fonts/PierSans/PierSans-Medium.otf)
 }
 @font-face {
+    font-family: pier_sans_bold;
+    src: url(../web-fonts/PierSans/PierSans-Black.otf);
+}
+@font-face {
     font-family: Nexa;
     src: url(../web-fonts/Nexa/Nexa-Light.otf)
 }
@@ -57,7 +61,10 @@ nav{
     background-repeat: no-repeat;
 }
 .movie_title>h1{
-    font-size: 60px;
+    font-size: 40px;
+    font-family: pier_sans_bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 .poster>img{
     width: 100%;

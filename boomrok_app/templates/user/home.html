@@ -106,6 +106,25 @@
 
             </div>
             <div class="top_trailers">
+                <h6>Other Trailers</h6>
+
+                {% if other_trailers %}
+                {% for trailer in other_trailers %}
+                <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto"
+                    style="min-width:320px; width: 90%; min-height:132px;" poster="{{now_trailer.movie.poster.url}}"
+                    data-setup="{}">
+                    <source src="{{now_trailer.trailer_item.url}}" type="video/mp4" />
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a
+                        web browser that
+                        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+                {% endfor %}
+                {% else %}
+                <h5>No Trailers found</h5>
+
+                {%endif%}
                 <img src="" alt="">
             </div>
         </div>

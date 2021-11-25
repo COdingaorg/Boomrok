@@ -14,8 +14,10 @@ def index(request):
 
     home_display = Trailer.objects.filter(active_on_display = True).last()
     cast_members = Cast_Members.objects.filter(movie = home_display.movie.pk).all()
+    other_trailers = Trailer.objects.all()
     
     context = {
+        'other_trailers':other_trailers,
         'cast_members':cast_members,
         'now_trailer': home_display,
         'title':f"{site_name}-Home"
