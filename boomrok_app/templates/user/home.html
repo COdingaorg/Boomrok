@@ -4,128 +4,121 @@
 {% block content %}
 <div id="movie_side" style="background-image: url({{now_trailer.movie.poster.url}});">
     <div id="page_overlay" class="row d-flex m-0 p-0">
-        <div class="movie_details col-md-7">
-            <div class="movie_title">
-                <h1>{{now_trailer.movie.title}}:</h1>
-                <h4>{{now_trailer.movie.sub_title}}</h4>
+        <div class="movie_details">
+            <div class="movie_info1">
+                <div class="poster">
+                    <img src="{{now_trailer.movie.poster.url}}" alt="{{now_trailer.trailer_title}} poster">
+                </div>
+                <div class="movie_title">
+                    <h1>{{now_trailer.movie.title}}:</h1>
+                    <h4><i>"{{now_trailer.movie.sub_title}}"</i></h4>
 
-                <span class="coming_soon">
-                    Coming Soon : {{now_trailer.movie.release_date}}
-                </span>
-            </div>
+                    <span class="coming_soon">
+                        Premieres : {{now_trailer.movie.release_date}}
+                    </span>
+                    <div class="rating">
+                        Rated:
+                        {% if now_trailer.movie.pg_rating != '+18' %}
+                        <span style="background-color: green;">{{now_trailer.movie.pg_rating}}</span>
+                        {% else %}
+                        <span style="background-color: red;">{{now_trailer.movie.pg_rating}}</span>
+                        {%endif%}
+                    </div>
 
-            <!--pagination buttons-->
-            <div class="m-4 d-flex alaign-itemd-center justify-content-center">
-                <a href="{% url 'trailer_details' now_trailer.pk %}" target="_blank" rel="noopener noreferrer"><button
-                        class="watch_trailer btn btn-light m-2">Watch Trailer</button></a>
 
-                <button type="button" class="buy_link btn btn-danger m-2" data-toggle="modal"
-                    data-target="#exampleModalCenter">
-                    Buy Movie Link
-                </button>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                    <!--pagination buttons-->
+
+                    <div class="d-flex alaign-itemd-center justify-content-center">
+                        <a href="{% url 'trailer_details' now_trailer.pk %}" target="_blank"
+                            rel="noopener noreferrer"><button class="watch_trailer btn btn-light mt-3 mr-3">Watch
+                                Trailer</button></a>
+
+                        <button type="button" class="buy_link btn btn-danger mt-3 ml-3" data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                            Buy Movie Link
+                        </button>
+                    </div>
+
+                </div>
+                <div class="storyline">
+                    <h6 class="title">Story Line</h6>
+                    <p class="storyline">{{now_trailer.movie.movie_info}}</p>
+                    <hr>
+                    <div class="specs">
+                        <div>
+                            <h6>Category</h6>
+                            <p class="texter">{{now_trailer.movie.category}}</p>
                         </div>
-                        <div class="modal-body">
-                            ...
+                        <div>
+                            <h6>Director(s)</h6>
+                            <p class="texter">{{now_trailer.movie.directors}}</p>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                        <div>
+                            <h6>Writer(s)</h6>
+                            <p class="texter">{{now_trailer.movie.writers}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!--watch trailer button page -->
+        </div>
+        <div class="movie_info">
+            <div class="cast">
+                <h6>Cast Members</h6>
+                {% if cast_members%}
+                <div id="cast_members">
+                    {% for cast in cast_members %}
+                    <div id="cast_member">
+                        <img src="{{cast.image.url}}" alt="{{cast.screen_name}}'s picture" class="m-2">
+                        <p class="texter bold text-align-center">{{cast.first_name}} {{cast.last_name}} as <br>
+                            <i>{{cast.screen_name}} <br> "{{cast.role}}"</i>
+                        </p>
+                    </div>
 
-            <div class="movie_info">
-                <div class="selections">
-                    <div>
-                        <h6>Category</h6>
-                        <p class="texter">{{now_trailer.movie.category}}</p>
-                    </div>
-                    <div>
-                        <h6>Director(s)</h6>
-                        <p class="texter">{{now_trailer.movie.directors}}</p>
-                    </div>
-                    <div>
-                        <h6>Writer(s)</h6>
-                        <p class="texter">{{now_trailer.movie.writers}}</p>
-                    </div>
+                    {% endfor %}
                 </div>
-                <div>
-                    <h6>Story Line</h6>
-                    <p class="texter">{{now_trailer.movie.movie_info}}</p>
-                </div><br>
-                <div class="cast">
-                    <h6>Cast Members</h6>
-                    {% if cast_members%}
-                    <div id="cast_members">
-                        {% for cast in cast_members %}
-                        <div id="cast_member">
-                            <img src="{{cast.image.url}}" alt="{{cast.screen_name}}'s picture" class="m-2">
-                            <p class="texter bold text-align-center">{{cast.first_name}} {{cast.last_name}} as <br>
-                                <i>{{cast.screen_name}} <br> "{{cast.role}}"</i>
-                            </p>
-                        </div>
-
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    <h5 class="warning"> No Cast Members Added! </h5>
-                    {% endif%}
-                </div>
+                {% else %}
+                <h5 class="warning"> No Cast Members Added! </h5>
+                {% endif%}
             </div>
         </div>
-        <div class="sidebar col-md-4">
-            <div class="poster">
-                <img src="{{now_trailer.movie.poster.url}}" alt="{{now_trailer.trailer_title}} poster">
-            </div>
+
+        <div class="sidebar">
+            <h5>Related Movies</h5>
             <div class="related_movies">
-                <h6>Related movie title {{related_movie.title}}</h6>
-                <p class="texter">{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quae cum earum
-                    hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt
-                    dicta tempore numquam. Quis, amet!</p>
+                {% if related_movies %}
 
-                <h6>Related movie title{{related_movie.title}}</h6>
-                <p class="texter">{{related_movie.movie_info}}Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quae cum earum
-                    hic voluptates aliquam eveniet. Non inventore totam, eos pariatur et alias similique vitae nesciunt
-                    dicta tempore numquam. Quis, amet!</p>
-
-            </div>
-            <div class="top_trailers">
-                <h6>Other Trailers</h6>
-
-                {% if other_trailers %}
-                {% for trailer in other_trailers %}
-                <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto"
-                    style="min-width:320px; width: 90%; min-height:132px;" poster="{{now_trailer.movie.poster.url}}"
-                    data-setup="{}">
-                    <source src="{{now_trailer.trailer_item.url}}" type="video/mp4" />
-                    <p class="vjs-no-js">
-                        To view this video please enable JavaScript, and consider upgrading to a
-                        web browser that
-                        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                    </p>
-                </video>
-                {% endfor %}
-                {% else %}
-                <h5>No Trailers found</h5>
-
-                {%endif%}
-                <img src="" alt="">
+                {% for related_movie in related_movies %}
+                <div class="related_item"
+                    style="background-image: url('{{related_movie.movie.poster.url}}'); background-position: center; background-size: contain; background-clip: padding-box; backface-visibility: visible; background-blend-mode: darken;">
+                    <h6 class='related_title'>{{related_movie.movie.title}}</h6>
+                </div>
+                {%endfor%}
+                {%else%}
+                <h5>No Related movies found </h5>
+                {% endif%}
             </div>
         </div>
     </div>

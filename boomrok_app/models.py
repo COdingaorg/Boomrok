@@ -24,6 +24,7 @@ class Movie(models.Model):
     sub_title = models.TextField()
     poster = models.ImageField(upload_to = 'Files/Posters/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
     movie_info = models.TextField()
+    pg_rating = models.CharField(max_length=10, default='PG-13')
     writers = models.TextField(default = 'Writers Go hera, separate with commas')
     directors = models.TextField(default = 'Directors go Here, separate with commas')
     category = models.CharField(max_length=100, default="Category Goes here")
