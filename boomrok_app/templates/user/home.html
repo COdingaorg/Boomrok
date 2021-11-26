@@ -111,10 +111,12 @@
                 {% if related_movies %}
 
                 {% for related_movie in related_movies %}
-                <div class="related_item"
-                    style="background-image: url('{{related_movie.movie.poster.url}}'); background-position: center; background-size: contain; background-clip: padding-box; backface-visibility: visible; background-blend-mode: darken;">
-                    <h6 class='related_title'>{{related_movie.movie.title}}</h6>
-                </div>
+                <a href="{% url 'trailer_details' related_movie.pk %}">
+                    <div class="related_item"
+                        style="background-image: url('{{related_movie.movie.poster.url}}'); background-position: center; background-size: contain; background-clip: padding-box; backface-visibility: visible; background-blend-mode: darken;">
+                        <h6 class='related_title'>{{related_movie.movie.title}}</h6>
+                    </div>
+                </a>
                 {%endfor%}
                 {%else%}
                 <h5>No Related movies found </h5>

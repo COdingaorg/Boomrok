@@ -3,12 +3,13 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-8 col-sm-12 col-xs-12 align-items-center justify-content-bottom">
+<div class="container row d-flex justify-content-center">
+    <div class="col-md-9 col-sm-12 col-xs-12 mt-4 d-flex align-items-center">
+        <div class="row align-items-center justify-content-bottom">
 
-            <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" style="min-width:640px; width: 100%; min-height:264px"
-                poster="{{object.movie.poster.url}}" data-setup="{}">
+            <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto"
+                style="min-width:320px; width: 100%; min-height:132px" poster="{{object.movie.poster.url}}"
+                data-setup="{}">
                 <source src="{{object.trailer_item.url}}" type="video/mp4" />
                 <p class="vjs-no-js">
                     To view this video please enable JavaScript, and consider upgrading to a
@@ -22,11 +23,18 @@
                     <p>Posted: {{ object.date_posted | date:"M d, Y" }}</p>
                 </div>
                 <div class="col-md-6 text-muted text-right">
+
                     <!-- Button trigger modal -->
                     <ion-icon class="video-icons" name="share-social-outline" type="button" data-toggle="modal"
                         data-target="#exampleModal">
-                        Share
+                        <img src="{% static 'images/jquery-icon-3.jpg' %}" alt="Share"
+                            style="background-color: white; width: 30px; height: 30px; border-radius: 50px;">
                     </ion-icon>
+
+                    <button type="button" class="buy_link btn btn-danger ml-3" data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                            Buy Movie Link
+                        </button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -60,27 +68,38 @@
                             </div>
                         </div>
                     </div>
-                    {% if object.uploader == user %}
-                    <a class="video-icons icon-color" href="{% url 'video-update' object.pk %}">
-                        <ion-icon name="pencil-outline"></ion-icon>
-                        </ion-icon>
-                    </a>
-                    <a class="video-icons icon-color" href="{% url 'video-delete' object.pk %}">
-                        <ion-icon name="close-outline"></ion-icon>
-                    </a>
-                    {% endif %}
+                </div>
+                <hr>
+                <p class="ml-5 mt-3"> {{ object.trailer_description }}</p>
+                <hr>
+                <div class="specs row d-flex align-items-center justify-content-space-between">
+                    <div class="col-md-3">
+                        <h6>Category</h6>
+                        <p class="texter">{{object.movie.category}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Director(s)</h6>
+                        <p class="texter">{{object.movie.directors}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Writer(s)</h6>
+                        <p class="texter">{{object.movie.writers}}</p>
+                    </div>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6 d-flex flex-row align-items-center">
-                    <a href=""><img src="" class="rounded-circle mr-4" height="65" width="65"></a>
-                    <a class="video-uploader" href="">
-                        <h5>{{ object.uploader }}</h5>
-                    </a>
-                </div>
-            </div>
-            <p class="ml-5 mt-3"> {{ object.trailer_description }}</p>
+        </div>
+    </div>
+    <div class="col-md-2 col-sm-12 col-xs-12 mt-4">
+        <div class="list">
+            {% if trailers_list %}
+            {% for trailer in trailers_list %}
+            <a href="{% url 'trailer_details' trailer.pk %}">
+                
+            </a>
+            {%endfor%}
+            {%else%}
+            <h6>No Trailers Found!</h6>
+            {% endif%}
         </div>
     </div>
 </div>

@@ -16,7 +16,9 @@ def index(request):
     cast_members = Cast_Members.objects.filter(movie = home_display.movie.pk).all()
     other_trailers = Trailer.objects.all()
     related_movies = Trailer.objects.all()
+    trailers_list = Trailer.objects.all()
     context = {
+        'trailers_list':trailers_list,
         'related_movies':related_movies,
         'other_trailers':other_trailers,
         'cast_members':cast_members,
@@ -33,10 +35,26 @@ class CreateTrailer(CreateView):
     def get_success_url(self):
         return reverse('trailer_details', kwargs={'pk':self.object.pk})
 
-class TrailerDetails(DetailView):
-    model = Trailer
-    template_name = 'user/trailer_details.html'
 
+# class TrailerDetails(DetailView):
+#     model = Trailer
+#     template_name = 'user/trailer_details.html'
+
+def trailers_list(request, pk):
+    '''
+    displays trailers list in trailers details page
+    '''
+    object = Trailer.objects.get(pk = pk)
+    trailers_list = Trailer.objects.all()
+
+    context = {
+        'object':object,
+        'trailers_list': trailers_list
+    }
+
+    return render(request, 'user/trailer_details.html', context)
+
+    
 class UpdateTrailer(UpdateView):
     model = Trailer
     fields = ['trailer_title', 'trailer_description', 'movie', 'active_on_display']

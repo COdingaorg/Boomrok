@@ -1,0 +1,9 @@
+<div class="list">
+    {% if trailers_list %}
+    {% for trailer in trailers_list %}
+    <p>trailers found</p>
+    {%endfor%}
+    {%else%}
+    <h6>No Trailers Found!</h6>
+    {% endif%}
+</div>
